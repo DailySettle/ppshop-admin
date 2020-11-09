@@ -1,7 +1,12 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home/home.component';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {HomeComponent} from './home/home.component';
 import {RouterModule, Routes} from '@angular/router';
+import {ProductTableComponent} from './product-table/product-table.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatInputModule} from '@angular/material/input';
 
 export const productsRoutes: Routes = [
   {
@@ -11,10 +16,15 @@ export const productsRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, ProductTableComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(productsRoutes)
+    RouterModule.forChild(productsRoutes),
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatInputModule
   ]
 })
-export class ProductsModule { }
+export class ProductsModule {
+}
