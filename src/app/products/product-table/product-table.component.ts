@@ -5,6 +5,8 @@ import {MatTable} from '@angular/material/table';
 import {ProductTableDataSource} from './product-table-datasource';
 import {Product} from '../model/product.model';
 import {ProductTableDatabase} from './product-table-database';
+import {MatDialog} from '@angular/material/dialog';
+import {EditProductDialogComponent} from '../edit-product-dialog/edit-product-dialog.component';
 
 @Component({
   selector: 'app-product-table',
@@ -19,7 +21,8 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
 
   displayedColumns = ['name', 'category', 'description', 'price', 'quantity', 'imageUrl', 'newArrive', 'onSale', 'rating', 'action'];
 
-  constructor(private productDB: ProductTableDatabase) {
+  constructor(private productDB: ProductTableDatabase,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -32,4 +35,9 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
     this.table.dataSource = this.dataSource;
   }
 
+  edit(product: Product): void {
+    this.dialog.open(EditProductDialogComponent, {
+      data: product
+    });
+  }
 }

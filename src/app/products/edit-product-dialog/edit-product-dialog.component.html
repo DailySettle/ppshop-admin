@@ -1,0 +1,125 @@
+<form [formGroup]="productForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>Shipping Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error *ngIf="productForm.controls['name'].hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <mat-select placeholder="Category" formControlName="category">
+              <mat-option value="FAST_FOOD">
+                速食
+              </mat-option>
+              <mat-option value="VEGES">
+                蔬菜
+              </mat-option>
+              <mat-option value="CANDY">
+                糖果
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="productForm.controls['category'].hasError('required')">
+              Category is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Description" formControlName="description">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Price" formControlName="price">
+            <mat-error *ngIf="productForm.controls['price'].hasError('required')">
+              Price is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Quantity" formControlName="quantity">
+            <mat-error *ngIf="productForm.controls['quantity'].hasError('required')">
+              Quantity is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Price" formControlName="price">
+            <mat-error *ngIf="productForm.controls['price'].hasError('required')">
+              Price is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Quantity" formControlName="quantity">
+            <mat-error *ngIf="productForm.controls['quantity'].hasError('required')">
+              Quantity is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="ImageUrl" formControlName="imageUrl">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <label>新进</label>
+            </div>
+            <div class="col">
+              <mat-radio-group formControlName="newArrive">
+                <mat-radio-button [value]="true">是</mat-radio-button>
+                <mat-radio-button [value]="false">否</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <label>打折</label>
+            </div>
+            <div class="col">
+              <mat-radio-group formControlName="onSale">
+                <mat-radio-button [value]="true">是</mat-radio-button>
+                <mat-radio-button [value]="false">否</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Rating" formControlName="rating">
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
