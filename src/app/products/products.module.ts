@@ -7,6 +7,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import {MatInputModule} from '@angular/material/input';
+import {MaterialModule} from '../material/material.module';
 
 export const productsRoutes: Routes = [
   {
@@ -23,7 +24,8 @@ export const productsRoutes: Routes = [
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatInputModule
+    MatInputModule,
+    MaterialModule
   ]
 })
 export class ProductsModule {

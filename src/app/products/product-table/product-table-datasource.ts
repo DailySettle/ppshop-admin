@@ -42,6 +42,7 @@ export class ProductTableDataSource extends DataSource<Product> {
    * any open connections or free any held resources that were set up during connect.
    */
   disconnect(): void {
+    this.productDB.productList.complete();
   }
 
   /**
