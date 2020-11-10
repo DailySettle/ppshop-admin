@@ -16,6 +16,8 @@ import {MatCardModule} from '@angular/material/card';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EnumToArrayPipe } from './enum-to-array.pipe';
+import { ShowBooleanPipe } from './show-boolean.pipe';
+import { ShowCategoryPipe } from './product-table/show-category.pipe';
 
 export const productsRoutes: Routes = [
   {
@@ -25,7 +27,7 @@ export const productsRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [HomeComponent, ProductTableComponent, EditProductDialogComponent, EnumToArrayPipe],
+  declarations: [HomeComponent, ProductTableComponent, EditProductDialogComponent, EnumToArrayPipe, ShowBooleanPipe, ShowCategoryPipe],
   imports: [
     CommonModule,
     RouterModule.forChild(productsRoutes),

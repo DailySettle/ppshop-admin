@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
-import {ProductGroup} from '../model/product-group.enum';
 import {Product} from '../model/product.model';
-import {MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {CategoryType} from '../model/category-type.enum';
+import {ProductService} from '../product.service';
 
 @Component({
   selector: 'app-edit-product-dialog',
@@ -12,9 +12,10 @@ import {CategoryType} from '../model/category-type.enum';
 })
 export class EditProductDialogComponent implements OnInit {
   productForm = this.fb.group({
+    id: [this.data.id],
     name: [this.data.name, Validators.required],
     category: [this.data.category, Validators.required],
-    description: [this.data.category],
+    description: [this.data.description],
     price: [this.data.price, Validators.required],
     quantity: [this.data.quantity, Validators.required],
     imageUrl: [this.data.imageUrl, Validators.required],
@@ -26,13 +27,20 @@ export class EditProductDialogComponent implements OnInit {
   groups = CategoryType;
 
   constructor(private fb: FormBuilder,
-              @Inject(MAT_DIALOG_DATA) public data: Product) {
+              @Inject(MAT_DIALOG_DATA) public data: Product,
+              private productService: ProductService,
+              public dialogRef: MatDialogRef<EditProductDialogComponent>) {
   }
 
   onSubmit(): void {
-    alert('Thanks!');
+    this.productService.update(this.productForm.value);
+    this.dialogRef.close();
   }
 
   ngOnInit(): void {
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

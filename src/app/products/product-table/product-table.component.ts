@@ -36,8 +36,12 @@ export class ProductTableComponent implements AfterViewInit, OnInit {
   }
 
   edit(product: Product): void {
-    this.dialog.open(EditProductDialogComponent, {
+    const dialogRef = this.dialog.open(EditProductDialogComponent, {
       data: product
     });
+
+    dialogRef.afterClosed().subscribe(
+      action => console.log(action)
+    );
   }
 }
