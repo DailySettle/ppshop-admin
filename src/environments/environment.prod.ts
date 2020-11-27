@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  SERVER_URL: 'http://localhost:8080',
+  SERVER_URL: 'https://ppshop-backend.azurewebsites.net',
 };

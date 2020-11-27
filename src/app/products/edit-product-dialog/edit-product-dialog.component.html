@@ -60,24 +60,6 @@
       <div class="row">
         <div class="col">
           <mat-form-field class="full-width">
-            <input matInput placeholder="Price" formControlName="price">
-            <mat-error *ngIf="productForm.controls['price'].hasError('required')">
-              Price is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-        <div class="col">
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Quantity" formControlName="quantity">
-            <mat-error *ngIf="productForm.controls['quantity'].hasError('required')">
-              Quantity is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <mat-form-field class="full-width">
             <input matInput placeholder="ImageUrl" formControlName="imageUrl">
           </mat-form-field>
         </div>

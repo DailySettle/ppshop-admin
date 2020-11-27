@@ -15,7 +15,7 @@ export class ProductService {
   }
 
   getAllProducts(): Observable<Product[]> {
-    const url = `${this.BASE_URL}/product/all`;
+    const url = `${this.BASE_URL}/admin/product`;
     return this.httpClient.get<any>(url).pipe(
       map(response => response.data));
   }
